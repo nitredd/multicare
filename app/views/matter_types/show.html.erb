@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @matter_type %>
+
+<div>
+  <%= link_to "Edit this matter type", edit_matter_type_path(@matter_type) %> |
+  <%= link_to "Back to matter types", matter_types_path %>
+
+  <%= button_to "Destroy this matter type", @matter_type, method: :delete %>
+</div>

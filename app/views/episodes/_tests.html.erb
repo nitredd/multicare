@@ -1,0 +1,9 @@
+<h2>Tests</h2>
+
+<% episode.episode_tests.each do |test| %>
+<div>
+<%= test.test_procedure.name %>
+</div>
+<% end %>
+
+<%= render 'episode_tests/new' %>

@@ -1,0 +1,23 @@
+<%= form_with(model: episode) do |form| %>
+  <% if episode.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(episode.errors.count, "error") %> prohibited this episode from being saved:</h2>
+
+      <ul>
+        <% episode.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :patient_id, style: "display: block" %>
+    <%= form.text_field :patient_id, value: ((params.key? 'episode') ? params[:episode][:patient_id] : '') %>
+    <%= link_to 'Search Patient', search_patient_path( from_screen: 'episode_form', from_id: episode.nil? ? 0 : episode.id ) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

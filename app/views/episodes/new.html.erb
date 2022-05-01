@@ -1,0 +1,13 @@
+<h1>New episode</h1>
+
+<%= render "form", episode: @episode %>
+
+<br>
+
+<div>
+  <%= link_to "Back to episodes", episodes_path %>
+</div>
+
+<% if Rails.env.development? %>
+  <%= console %>
+<% end %>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Matter types</h1>
+
+<div id="matter_types">
+  <% @matter_types.each do |matter_type| %>
+    <%= render matter_type %>
+    <p>
+      <%= link_to "Show this matter type", matter_type %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New matter type", new_matter_type_path %>

@@ -1,0 +1,2 @@
+class MatterType < ApplicationRecord
+end

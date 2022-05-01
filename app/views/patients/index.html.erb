@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Patients</h1>
+
+<div id="patients">
+  <% @patients.each do |patient| %>
+    <%= render patient %>
+    <p>
+      <% if params.key? :patient_search %>
+        <%= link_to 'Select for Episode of Care', new_episode_path(episode: {patient_id: patient.id }) %>
+      <% else %>
+        <%= link_to "Show this patient", patient %>
+      <% end %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New patient", new_patient_path %>
+
+<% if Rails.env.development? %>
+  <%= console %>
+<% end %>

@@ -1,0 +1,12 @@
+rails new multicare
+cd multicare
+bundle install
+rails g scaffold Patient name:string phone:string
+rails g scaffold Staff name:string phone:string
+rails g scaffold Department name:string
+rails g scaffold MatterType name:string
+rails g scaffold TestProcedure name:string department:references matter_type:references
+rails g scaffold Episode patient:references
+rails g resource EpisodeTest episode:references test_procedure:references result:string
+rails db:migrate
+sed -i'' -e 's/articles/patients/' config/routes.rb

@@ -1,0 +1,7 @@
+<%# For some reason, this doesnt render - so disable turbo as a workaround %>
+<%= form_for :patient_search, url: '/patient_search_result', data: {turbo: 'false'} do |form| %>
+<%= form.text_field :name %>
+<%= form.hidden_field :from_screen, value: params[:from_screen] %>
+<%= form.hidden_field :from_id, value: params[:from_id] %>
+<%= form.submit value: 'Search' %>
+<% end %>
