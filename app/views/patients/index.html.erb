@@ -7,7 +7,11 @@
     <%= render patient %>
     <p>
       <% if params.key? :patient_search %>
-        <%= link_to 'Select for Episode of Care', new_episode_path(episode: {patient_id: patient.id }) %>
+        <% if params[:patient_search][:from_id] == '' %>
+          <%= link_to 'Select for Episode of Care', new_episode_path(episode: {patient_id: patient.id }) %>
+        <% else %>
+          <%= link_to 'Select for Episode of Care', edit_episode_path(Episode.find(params[:patient_search][:from_id]), episode: {patient_id: patient.id }) %>
+        <% end %>
       <% else %>
         <%= link_to "Show this patient", patient %>
       <% end %>

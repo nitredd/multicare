@@ -13,11 +13,7 @@
 
   <div>
     <%= form.label :patient_id, style: "display: block" %>
-    <% if params.key? 'episode' %>
-    <%= form.text_field :patient_id, value: params[:episode][:patient_id] %>
-    <% else %>
-    <%= form.text_field :patient_id %>
-    <% end %>
+    <%= form.text_field :patient_id, value: ((params.key? 'episode') ? params[:episode][:patient_id] : '') %>
     <%= link_to 'Search Patient', search_patient_path( from_screen: 'episode_form', from_id: episode.nil? ? 0 : episode.id ) %>
   </div>
 
